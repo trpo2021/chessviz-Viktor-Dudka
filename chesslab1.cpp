@@ -57,7 +57,8 @@ int main()
     int y, y1;
     char figure,sign,sign1;
     int k = 0;
-    while (sign!='#')
+    sign = 0;
+    while (sign1 !='#')
     {
    
         link:
@@ -68,8 +69,8 @@ int main()
             cout << endl;
         }
         chert();
-        cout << "Move number:sosati" << k<<endl;       
-        cin>>figure>>x >>y>>sign>>x1>>y1;
+        cout << "Move number:" << k<<endl;       
+        cin>>figure>>x >>y>>sign>>x1>>y1>>sign1;
         if (y > 0 && y < 9 && x>='A' && x <= 'h' && y1>0 && y1 < 9 && x1>='A' && x1 <= 'h')
         {
             y = transy(y);
