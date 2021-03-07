@@ -57,7 +57,7 @@ int main()
     int y, y1;
     char figure,sign,sign1;
     int k = 0;
-    while (1)
+    while (sign!='#')
     {
    
         link:
@@ -68,7 +68,7 @@ int main()
             cout << endl;
         }
         chert();
-        cout << "Move number:" << k<<endl;       
+        cout << "Move number:sosati" << k<<endl;       
         cin>>figure>>x >>y>>sign>>x1>>y1;
         if (y > 0 && y < 9 && x>='A' && x <= 'h' && y1>0 && y1 < 9 && x1>='A' && x1 <= 'h')
         {
@@ -84,7 +84,7 @@ int main()
             if (sign == 'x' && board[y1][x1] == ' ')
             {
                 cout << "Error\n";
-                break;
+                goto link;
             }
             else if (sign!='x')
             {
@@ -97,7 +97,7 @@ int main()
         else
         {
             cout << "Error. Enter normal coordinates\n";
-            break;
+            goto link;
         }
             
     }

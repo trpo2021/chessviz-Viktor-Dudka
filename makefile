@@ -1,5 +1,8 @@
-# build an executable named myprog from myprog.c
-all: myprog.c
-gcc -g -Wall -o myprog myprog.c
-clean:
-$(RM) myprog
+
+
+all: chessviz-Viktor-Dudka
+
+chessviz-Viktor-Dudka:chesslab1.cpp 
+ g++ $(CFLAGS) main.o lib.o -o chessviz-Viktor-Dudka
+
+clean: rm -rf *.o chessviz-Viktor-Dudka 
