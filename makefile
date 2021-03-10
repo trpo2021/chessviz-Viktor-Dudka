@@ -2,7 +2,12 @@
 
 all: chessviz-Viktor-Dudka
 
-chessviz-Viktor-Dudka:chesslab1.cpp 
- g++ $(CFLAGS) main.o lib.o -o chessviz-Viktor-Dudka
+chessviz-Viktor-Dudka:main.o foo.o 
+ gcc main.o foo.o -o chessviz-Viktor-Dudka.exe
 
-clean: rm -rf *.o chessviz-Viktor-Dudka 
+main.o:chesslab1.cpp
+ gcc -c chesslab1.cpp
+foo.o:foo.c
+ gcc -c foo.c
+clean: 
+ rm -rf *.o*.exe 
