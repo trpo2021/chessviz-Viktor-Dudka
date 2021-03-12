@@ -1,3 +1,4 @@
 *.o
 .main.c.swp
+hello.h
 #main.c#
