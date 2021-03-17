@@ -1,13 +1,15 @@
+gcc -Wall -Werror -c main.cpp
+gcc -Wall -Werror -c chesslab1.cpp
+CFLAGS = -Wall -Wextra -Werror
 
+hello: main.o hello.o
+        $(CC) $(CFLAGS) -o $@ $^
 
-all: chessviz-Viktor-Dudka
+main.o: main.c
+        $(CC) -c $(CFLAGS) -o $@ $<
 
-chessviz-Viktor-Dudka:main.o foo.o 
- gcc main.o foo.o -o chessviz-Viktor-Dudka.exe
+hello.o: hello.c
+        $(CC) -c $(CFLAGS) -o $@ $<
 
-main.o:chesslab1.cpp
- gcc -c chesslab1.cpp
-foo.o:foo.c
- gcc -c foo.c
-clean: 
- rm -rf *.o*.exe 
+-include main.d hello.d
+
