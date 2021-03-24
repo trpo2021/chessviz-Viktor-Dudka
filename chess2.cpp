@@ -71,8 +71,8 @@ int main()
         chert();
         cout << "Move number:" << k << endl;
         cin >> figure >> x >> y >> sign >> x1 >> y1;
-        if (y > 0 && y < 9 && x >= 'A' && x <= 'h' && y1>0 && y1 < 9 && x1 >= 'A' && x1 <= 'h')
-        {
+       if (y > 0 && y < 9 && x >= 'A' && x <= 'h' && y1>0 && y1 < 9 && x1 >= 'A' && x1 <= 'h')
+       {
             y = transy(y);
             y1 = transy(y1);
             x = transx(x);
@@ -87,14 +87,23 @@ int main()
                 cout << "Error\n";
                 goto link;
             }
-            else if (sign != 'x')
+            if (sign == 'x')
+            {
+                board[y1][x1] = ' ';
+                board[y1][x1] = board[y][x];
+                chert();
+                k++;
+                goto link;
+            }
+            if (sign != 'x')
             {
                 board[y1][x1] = board[y][x];
                 board[y][x] = ' ';
                 k++;
                 chert();
+                goto link;
             }
-        }
+       }
         else
         {
             cout << "Error. Enter normal coordinates\n";
