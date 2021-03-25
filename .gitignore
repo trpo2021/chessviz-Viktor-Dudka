@@ -1,4 +1,2 @@
-*.o
-.main.c.swp
+chess2.exe
 hello.h
-#main.c#

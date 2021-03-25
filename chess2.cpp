@@ -61,7 +61,8 @@ int main()
     char figure, sign;
     int k = 0;
     sign = 0;
-    link:
+    while (1)
+    {
         for (int i = 0; i < 9; ++i)
         {
             for (int j = 0; j < 9; ++j)
@@ -71,8 +72,8 @@ int main()
         chert();
         cout << "Move number:" << k << endl;
         cin >> figure >> x >> y >> sign >> x1 >> y1;
-       if (y > 0 && y < 9 && x >= 'A' && x <= 'h' && y1>0 && y1 < 9 && x1 >= 'A' && x1 <= 'h')
-       {
+        if (y > 0 && y < 9 && x >= 'A' && x <= 'h' && y1>0 && y1 < 9 && x1 >= 'A' && x1 <= 'h')
+        {
             y = transy(y);
             y1 = transy(y1);
             x = transx(x);
@@ -80,12 +81,10 @@ int main()
             if (board[y][x] != figure)
             {
                 cout << "Error.Type figure\n";
-                goto link;
             }
             if (sign == 'x' && board[y1][x1] == ' ')
             {
                 cout << "Error\n";
-                goto link;
             }
             if (sign == 'x')
             {
@@ -93,7 +92,6 @@ int main()
                 board[y1][x1] = board[y][x];
                 chert();
                 k++;
-                goto link;
             }
             if (sign != 'x')
             {
@@ -101,16 +99,15 @@ int main()
                 board[y][x] = ' ';
                 k++;
                 chert();
-                goto link;
             }
-       }
+        }
         else
         {
             cout << "Error. Enter normal coordinates\n";
-            goto link;
         }
 
     }
+}
 
 /*Тип фигуры, выполняющей ход(король, конь и т.д.).
 Поле, с которого сделан ход.
