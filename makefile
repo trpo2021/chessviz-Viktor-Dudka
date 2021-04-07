@@ -1,3 +1,3 @@
-all: chess2
-chess2: chess2.cpp
-	g++ -o chess2 chess2.cpp
+all: chess2.exe
+chess2.exe: chess2.cpp
+	g++ -o chess2.exe chess2.cpp
