@@ -1,7 +1,8 @@
 #include "hello.h"
+#include <cstdlib> 
 
 int main()
 {
     say_hello();
-    return 0;
+    system("pause");
 }

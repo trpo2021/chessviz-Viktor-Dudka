@@ -1,13 +1,17 @@
+CFLAGS=-Wall -Wextra -Werror
+CPPFLAGS=-MMD
+CC=g++
 
+hello: main.o hello.o 
+	 $(CC) $(CFLAGS) -o $@ $^
 
-all: chessviz-Viktor-Dudka
+main.o: main.cpp
+	 $(CC) -c $(CFLAGS) -o $@ $<
 
-chessviz-Viktor-Dudka:main.o foo.o 
- gcc main.o foo.o -o chessviz-Viktor-Dudka.exe
+libhello.a: hello.o
+	ar rcs $@ $^
 
-main.o:chesslab1.cpp
- gcc -c chesslab1.cpp
-foo.o:foo.c
- gcc -c foo.c
-clean: 
- rm -rf *.o*.exe 
+hello.o: hello.cpp
+	 $(CC) -c $(CFLAGS) $(CPPFLAGS) -o $@ $<
+
+ -include main.d hello.d
