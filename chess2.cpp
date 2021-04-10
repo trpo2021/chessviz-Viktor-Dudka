@@ -56,9 +56,9 @@ int main()
                       {' ','a','b','c','d','e','f','g','h'},
     };
 
-    char x, x1;
-    int y, y1;
-    char figure, sign;
+    char x, x1,x2,x3;
+    int y, y1,y2,y3;
+    char figure,figure2, sign,sign2;
     int k = 0;
     sign = 0;
     while (1)
@@ -72,26 +72,38 @@ int main()
         chert();
         cout << "Move number:" << k << endl;
         cin >> figure >> x >> y >> sign >> x1 >> y1;
-        if (y > 0 && y < 9 && x >= 'A' && x <= 'h' && y1>0 && y1 < 9 && x1 >= 'A' && x1 <= 'h')
+        cin >> figure2 >> x2 >> y2 >> sign2 >> x3 >> y3;
+        if (y > 0 && y < 9 && x >= 'A' && x <= 'h' && y1>0 && y1 < 9 && x1 >= 'A' && x1 <= 'h' && y2 > 0 && y2 < 9 && x2 >= 'A' && x2 <= 'h' && y3>0 && y3 < 9 && x3 >= 'A' && x3 <= 'h')
         {
             y = transy(y);
             y1 = transy(y1);
             x = transx(x);
             x1 = transx(x1);
-            if (board[y][x] != figure)
+            x2 = transx(x2);
+            y2 = transy(y2);
+            x3 = transx(x3);
+            y3 = transy(y3);
+            if (board[y][x] != figure || board[y2][x2]!=figure2)
             {
-                cout << "Error.Type figure\n";
+                cout << "\nError.Type figure\n";
+                continue;
             }
-            if (sign == 'x' && board[y1][x1] == ' ')
+            if ((sign == 'x' && board[y1][x1] == ' ')||( sign2 == 'x' && board[y3][x3] == ' '))
             {
-                cout << "Error\n";
+                cout << "\nError\n";
+                continue;
             }
             if (sign == 'x')
             {
                 board[y1][x1] = ' ';
                 board[y1][x1] = board[y][x];
                 chert();
-                k++;
+            }
+            if (sign2 == 'x')
+            {
+                board[y3][x3] = ' ';
+                board[y3][x3] = board[2][2];
+                chert();
             }
             if (sign != 'x')
             {
@@ -100,12 +112,19 @@ int main()
                 k++;
                 chert();
             }
+            if (sign2 != 'x')
+            {
+                board[y3][x3] = board[y2][x2];
+                board[y2][x2] = ' ';
+                chert();
+            }
         }
         else
         {
-            cout << "Error. Enter normal coordinates\n";
+            cout << "\nError. Enter normal coordinates\n";
+            continue;
         }
-
+        k++;
     }
 }
 
