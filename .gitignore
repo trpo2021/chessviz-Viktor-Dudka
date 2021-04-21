@@ -1,2 +1,16 @@
+<<<<<<< HEAD
 chess2.exe
 hello.h
+||||||| ac87695
+*.o
+.main.c.swp
+hello.h
+#main.c#
+=======
+
+*.o
+.main.c.swp
+hello.h
+#main.c#
+bin/*.exe
+>>>>>>> lab3
