@@ -1,30 +1,13 @@
-#include "C:\Users\petru\source\repos\chessviz-Viktor-Dudka\src\libchessviz\lib.h"
 #include <iostream>
+#include <libchessviz/lib.h>
 using namespace std;
-int transy(int y)
-{
-    switch (y) {
-    case 1:
-        return 7;
-    case 2:
-        return 6;
-    case 3:
-        return 5;
-    case 4:
-        return 4;
-    case 5:
-        return 3;
-    case 6:
-        return 2;
-    case 7:
-        return 1;
-    case 8:
-        return 0;
-    default:
-        return 0;
-    }
-}
-int transx(char x)
+
+struct coord {
+    char type, x1, x2, sign;
+    int y1, y2;
+};
+
+int TransX(char x)
 {
     switch (x) {
     case 'a':
@@ -47,40 +30,81 @@ int transx(char x)
         return 0;
     }
 }
-void chert()
+int TransY(int y)
 {
-    for (int i = 0; i < 10; i++)
-        cout << "--";
+    switch (y) {
+    case 1:
+        y = 7;
+        break;
+    case 2:
+        y = 6;
+        break;
+    case 3:
+        y = 5;
+        break;
+    case 4:
+        y = 4;
+        break;
+    case 5:
+        y = 3;
+        break;
+    case 6:
+        y = 2;
+        break;
+    case 7:
+        y = 1;
+        break;
+    case 8:
+        y = 0;
+        break;
+    default:
+        y = -1;
+    }
+    return y;
+}
+
+void dash()
+{
+    for (int i = 0; i < 20; ++i)
+        cout << "_";
     cout << endl;
 }
-int check_type(char board1, char board2, char figure, char figure2)
+void out_board(char board[9][9])
 {
-    if (board1 != figure || board2 != figure2)
-        return 1;
-    return 0;
-}
-void drowboard(char board[9][9])
-{
+    dash();
     for (int i = 0; i < 9; ++i) {
         for (int j = 0; j < 9; ++j)
-            cout << board[i][j] << " ";
+            cout << board[i][j] << ' ';
         cout << endl;
     }
+    dash();
 }
 
-int check(char y, char y1, char y2, char y3, char x, char x1, char x2, char x3)
+void Motion(char board[9][9], coord str)
 {
-    if (y > 0 && y < 9 && x >= 'A' && x <= 'h' && y1 > 0 && y1 < 9 && x1 >= 'A'
-        && x1 <= 'h' && y2 > 0 && y2 < 9 && x2 >= 'A' && x2 <= 'h' && y3 > 0
-        && y3 < 9 && x3 >= 'A' && x3 <= 'h')
+    board[TransY(str.y2)][TransX(str.x2)]
+            = board[TransY(str.y1)][TransX(str.x1)];
+    board[TransY(str.y1)][TransX(str.x1)] = ' ';
+}
+
+int CheckRangeX(coord first, coord second)
+{
+    if (TransX(first.x1) != 0 && TransX(first.x2) != 0 && TransX(second.x1) != 0
+        && TransX(second.x2) != 0)
         return 1;
     return 0;
 }
-
-int check_move_type(char sign, char sign2, char board1, char board2)
+int CheckRangeY(coord first, coord second)
 {
-    if ((sign == 'x' && board1 == ' ')
-        || (sign2 == 'x' && board2 == ' '))
-    return 1;
+    if (TransY(first.y1) != -1 && TransY(first.y2) != -1
+        && TransY(second.y1) != -1 && TransY(second.y2) != -1)
+        return 1;
+    return 0;
+}
+int CheckType(char board[9][9], coord first, coord second)
+{
+    if (first.type == board[TransY(first.y1)][TransX(first.x1)]
+        && second.type == board[TransY(second.y1)][TransX(second.x1)])
+        return 1;
     return 0;
 }
