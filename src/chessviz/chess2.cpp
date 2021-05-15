@@ -1,5 +1,6 @@
+#include "C:\Users\petru\source\repos\chessviz-Viktor-Dudka\src\libchessviz\lib.h"
+#include <cassert>
 #include <iostream>
-#include <libchessviz/lib.h>
 #include <string>
 using namespace std;
 

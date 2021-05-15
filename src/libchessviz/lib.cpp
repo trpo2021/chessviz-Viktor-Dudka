@@ -1,12 +1,11 @@
+#include "lib.h"
 #include <iostream>
-#include <libchessviz/lib.h>
 using namespace std;
 
 struct coord {
     char type, x1, x2, sign;
     int y1, y2;
 };
-
 int TransX(char x)
 {
     switch (x) {
@@ -34,50 +33,41 @@ int TransY(int y)
 {
     switch (y) {
     case 1:
-        y = 7;
-        break;
+        return y = 7;
     case 2:
-        y = 6;
-        break;
+        return y = 6;
     case 3:
-        y = 5;
-        break;
+        return y = 5;
     case 4:
-        y = 4;
-        break;
+        return y = 4;
     case 5:
-        y = 3;
-        break;
+        return y = 3;
     case 6:
-        y = 2;
-        break;
+        return y = 2;
     case 7:
-        y = 1;
-        break;
+        return y = 1;
     case 8:
-        y = 0;
-        break;
+        return y = 0;
     default:
-        y = -1;
+        return y = -1;
     }
-    return y;
 }
 
-void dash()
+void row()
 {
-    for (int i = 0; i < 20; ++i)
-        cout << "_";
+    for (int i = 0; i < 17; ++i)
+        cout << "-";
     cout << endl;
 }
 void out_board(char board[9][9])
 {
-    dash();
+    row();
     for (int i = 0; i < 9; ++i) {
         for (int j = 0; j < 9; ++j)
             cout << board[i][j] << ' ';
         cout << endl;
     }
-    dash();
+    row();
 }
 
 void Motion(char board[9][9], coord str)
