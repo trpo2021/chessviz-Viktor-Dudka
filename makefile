@@ -52,8 +52,9 @@ $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/%.o: $(SRC_DIR)/$(LIB_NAME)/%.cpp
 	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDLIBS)
 
 $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/%.o: $(SRC_DIR)/$(LIB_NAME)/%.cpp
-	$(Cc) -c $(CPPFLAGS) $< -o $@ $(LDLIBS)
-
+	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDLIBS)
+$(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.cpp
+	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDLIBS)
 .PHONY: clean
 clean:
 	$(RM) $(APP_PATH) $(LIB_PATH) $(TEST_PATH)
