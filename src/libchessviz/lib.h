@@ -1,8 +1,5 @@
 #pragma once
-struct coord {
-    char type, x1, x2, sign;
-    int y1, y2;
-};
+struct coord;
 int TransX(char x);
 int TransY(int y);
 void row();

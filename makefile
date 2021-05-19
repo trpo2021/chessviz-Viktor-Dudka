@@ -27,8 +27,7 @@ TEST_OBJECTS = $(TEST_SOURCES:$(TEST_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(TEST_DIR)/%.
 LIB_SOURCES = $(shell find $(SRC_DIR)/$(LIB_NAME) -name lib.cpp)
 LIB_OBJECTS = $(LIB_SOURCES:$(SRC_DIR)/%.$(SRC_EXT)=$(OBJ_DIR)/$(SRC_DIR)/%.o)
 
-DEPS = $(APP_OBJECTS:.o=.d) $(LIB_OBJECTS:.o=.d)
-
+DEPS = $(APP_OBJECTS:.o=.d) $(LIB_OBJECTS:.o=.d) $(TEST_OBJECTS:.o=.d) 
 
 all: $(APP_PATH)
 
@@ -51,10 +50,9 @@ $(OBJ_DIR)/$(SRC_DIR)/$(APP_NAME)/%.o: $(SRC_DIR)/$(APP_NAME)/%.cpp
 $(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/%.o: $(SRC_DIR)/$(LIB_NAME)/%.cpp
 	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDLIBS)
 
-$(OBJ_DIR)/$(SRC_DIR)/$(LIB_NAME)/%.o: $(SRC_DIR)/$(LIB_NAME)/%.cpp
-	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDLIBS)
 $(OBJ_DIR)/$(TEST_DIR)/%.o: $(TEST_DIR)/%.cpp
 	$(CC) -c $(CPPFLAGS) $< -o $@ $(LDLIBS)
+
 .PHONY: clean
 clean:
 	$(RM) $(APP_PATH) $(LIB_PATH) $(TEST_PATH)
