@@ -33,29 +33,29 @@ TEST_CASE("test CheckType")
     coord testT1, testT2;
     testT1.type = 'R';
     testT2.type = 'r';
-    testT1.x1 = testT1.x2 = 'a';
+    testT1.x1 = testT2.x2 = 'a';
     testT1.y1 = 1;
-    testT1.y2 = 8;
+    testT2.y2 = 8;
     REQUIRE(CheckType(board, testT1, testT2) == 1);
     testT1.type = 'N';
     testT2.type = 'n';
-    testT1.x1 = testT1.x2 = 'b';
+    testT1.x1 = testT2.x2 = 'b';
     REQUIRE(CheckType(board, testT1, testT2) == 1);
     testT1.type = 'B';
     testT2.type = 'b';
-    testT1.x1 = testT1.x2 = 'c';
+    testT1.x1 = testT2.x2 = 'c';
     REQUIRE(CheckType(board, testT1, testT2) == 1);
     testT1.type = 'Q';
     testT2.type = 'q';
-    testT1.x1 = testT1.x2 = 'd';
+    testT1.x1 = testT2.x2 = 'd';
     REQUIRE(CheckType(board, testT1, testT2) == 1);
     testT1.type = 'K';
     testT2.type = 'k';
-    testT1.x1 = testT1.x2 = 'e';
+    testT1.x1 = testT2.x2 = 'e';
     REQUIRE(CheckType(board, testT1, testT2) == 1);
     testT1.type = 'B';
     testT2.type = 'b';
-    testT1.x1 = testT1.x2 = 'a';
+    testT1.x1 = testT2.x2 = 'a';
     REQUIRE(CheckType(board, testT1, testT2) == 0);
 }
 

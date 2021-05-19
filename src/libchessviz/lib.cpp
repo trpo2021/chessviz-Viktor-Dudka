@@ -94,7 +94,7 @@ int CheckRangeY(coord first, coord second)
 int CheckType(char board[9][9], coord first, coord second)
 {
     if (first.type == board[TransY(first.y1)][TransX(first.x1)]
-        && second.type == board[TransY(second.y1)][TransX(second.x1)])
+        && second.type == board[TransY(second.y2)][TransX(second.x2)])
         return 1;
     return 0;
 }
