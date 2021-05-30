@@ -1,5 +1,5 @@
 ﻿#define CATCH_CONFIG_MAIN
-#include "lib.h"
+#include "C:\Users\petru\source\repos\chessviz-Viktor-Dudka\src\libchessviz\lib.h"
 #include "catch.hpp"
 TEST_CASE("test transx")
 {
