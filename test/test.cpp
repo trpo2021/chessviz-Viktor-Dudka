@@ -1,7 +1,6 @@
-﻿
-#define CATCH_CONFIG_MAIN 
-#include "C:\Users\petru\source\repos\chessviz-Viktor-Dudka\thirdparty\catch.hpp"
+﻿#define CATCH_CONFIG_MAIN
 #include "C:\Users\petru\source\repos\chessviz-Viktor-Dudka\src\libchessviz\lib.h"
+#include "C:\Users\petru\source\repos\chessviz-Viktor-Dudka\thirdparty\catch.hpp"
 TEST_CASE("test transx")
 {
     REQUIRE(TransX('b') == 2);
@@ -21,15 +20,15 @@ struct coord {
 TEST_CASE("test CheckType")
 {
     char board[9][9]
-        = { {'8', 'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
-           {'7', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
-           {'6', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-           {'5', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-           {'4', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-           {'3', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-           {'2', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
-           {'1', 'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'},
-           {' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'} };
+            = {{'8', 'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
+               {'7', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
+               {'6', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+               {'5', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+               {'4', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+               {'3', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+               {'2', 'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
+               {'1', 'R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'},
+               {' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'}};
     coord testT1, testT2;
     testT1.type = 'R';
     testT2.type = 'r';
@@ -66,7 +65,7 @@ TEST_CASE("Test CheckRangeX")
     test1.x2 = 'b';
     test2.x1 = 'c';
     test2.x2 = 'd';
-    REQUIRE(CheckRangeX(test1, test2)==1);
+    REQUIRE(CheckRangeX(test1, test2) == 1);
     test1.x1 = 'e';
     test1.x2 = 'f';
     test2.x1 = 'g';
