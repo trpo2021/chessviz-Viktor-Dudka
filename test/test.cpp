@@ -1,6 +1,6 @@
 ﻿#define CATCH_CONFIG_MAIN
-#include "C:\Users\petru\source\repos\chessviz-Viktor-Dudka\src\libchessviz\lib.h"
-#include "C:\Users\petru\source\repos\chessviz-Viktor-Dudka\thirdparty\catch.hpp"
+#include "lib.h"
+#include "catch.hpp"
 TEST_CASE("test transx")
 {
     REQUIRE(TransX('b') == 2);
