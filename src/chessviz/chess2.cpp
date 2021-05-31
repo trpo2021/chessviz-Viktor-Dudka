@@ -1,4 +1,4 @@
-#include "libchessviz\lib.h"
+#include "libchessviz/lib.h"
 #include <cassert>
 #include <iostream>
 #include <string>
